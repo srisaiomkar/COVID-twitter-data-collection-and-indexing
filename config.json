@@ -1,20 +1,367 @@
 {
     "pois": [
-      {
-        "screen_name": "JoeBiden",
-        "country": "USA",
-        "count": 500,
-        "finished": 0,
-        "reply_finished": 0
-      }
+        {
+            "id": 1,
+            "screen_name": "CDCgov",
+            "country": "USA",
+            "count": 1000,
+            "finished": 0,
+            "reply_finished": 0
+        },
+        {
+            "id": 2,
+            "screen_name": "JoeBiden",
+            "country": "USA",
+            "count": 1000,
+            "finished": 0,
+            "reply_finished": 0
+        },
+        {
+            "id": 3,
+            "screen_name": "KamalaHarris",
+            "country": "USA",
+            "count": 1000,
+            "finished": 0,
+            "reply_finished": 0
+        },
+        {
+            "id": 4,
+            "screen_name": "BarackObama",
+            "country": "USA",
+            "count": 1000,
+            "finished": 0,
+            "reply_finished": 0
+        },
+        {
+            "id": 5,
+            "screen_name": "tedcruz",
+            "country": "USA",
+            "count": 1000,
+            "finished": 0,
+            "reply_finished": 0
+        },
+        {
+            "id": 6,
+            "screen_name": "MoHFW_INDIA",
+            "country": "India",
+            "count": 600,
+            "finished": 0,
+            "reply_finished": 0
+        },
+        {
+            "id": 7,
+            "screen_name": "narendramodi",
+            "country": "India",
+            "count": 600,
+            "finished": 0,
+            "reply_finished": 0
+        },
+        {
+            "id": 8,
+            "screen_name": "RahulGandhi",
+            "country": "India",
+            "count": 600,
+            "finished": 0,
+            "reply_finished": 0
+        },
+        {
+            "id": 9,
+            "screen_name": "AmitShah",
+            "country": "India",
+            "count": 600,
+            "finished": 0,
+            "reply_finished": 0
+        },
+        {
+            "id": 10,
+            "screen_name": "ArvindKejriwal",
+            "country": "India",
+            "count": 600,
+            "finished": 0,
+            "reply_finished": 0
+        },
+        {
+            "id": 11,
+            "screen_name": "SSalud_mx",
+            "country": "MEXICO",
+            "count": 600,
+            "finished": 0,
+            "reply_finished": 0
+        },
+        {
+            "id": 12,
+            "screen_name": "lopezobrador_",
+            "country": "MEXICO",
+            "count": 600,
+            "finished": 0,
+            "reply_finished": 0
+        },
+        {
+            "id": 13,
+            "screen_name": "m_ebrard",
+            "country": "MEXICO",
+            "count": 600,
+            "finished": 0,
+            "reply_finished": 0
+        },
+        {
+            "id": 14,
+            "screen_name": "PRI_Nacional",
+            "country": "MEXICO",
+            "count": 600,
+            "finished": 0,
+            "reply_finished": 0
+        },
+        {
+            "id": 15,
+            "screen_name": "PRDMexico",
+            "country": "MEXICO",
+            "count": 600,
+            "finished": 0,
+            "reply_finished": 0
+        }
     ],
     "keywords": [
-      {
-        "name": "covid vaccine",
-        "count": 100,
-        "lang": "en",
-        "country": "USA",
-        "finished": 0
-      }
+        {
+            "id" : 1,
+            "name": "anticuerpos",
+            "count": 2000,
+            "lang": "es",
+            "country": "Mexico",
+            "finished": 0
+        },
+        {
+            "id" : 2,
+            "name": "eficacia de la vacuna",
+            "count": 2000,
+            "lang": "es",
+            "country": "Mexico",
+            "finished": 0
+        },
+        {
+            "id" : 3,
+            "name": "vacuna covid",
+            "count": 2000,
+            "lang": "es",
+            "country": "Mexico",
+            "finished": 0
+        },
+        {
+            "id" : 4,
+            "name": "dosis de vacuna",
+            "count": 2000,
+            "lang": "es",
+            "country": "Mexico",
+            "finished": 0
+        },
+        {
+            "id" : 5,
+            "name": "campaña de vacunación",
+            "count": 2000,
+            "lang": "es",
+            "country": "Mexico",
+            "finished": 0
+        },
+        {
+            "id" : 6,
+            "name": "vacunar",
+            "count": 2000,
+            "lang": "es",
+            "country": "Mexico",
+            "finished": 0
+        },
+        {
+            "id" : 7,
+            "name": "efecto secundario",
+            "count": 2000,
+            "lang": "es",
+            "country": "Mexico",
+            "finished": 0
+        },
+        {
+            "id" : 8,
+            "name": "inyección de refuerzo",
+            "count": 2000,
+            "lang": "es",
+            "country": "Mexico",
+            "finished": 0
+        },
+        {
+            "id" : 9,
+            "name": "inmunización",
+            "count": 2000,
+            "lang": "es",
+            "country": "Mexico",
+            "finished": 0
+        },
+        {
+            "id" : 10,
+            "name": "vacunado",
+            "count": 2000,
+            "lang": "es",
+            "country": "Mexico",
+            "finished": 0
+        },
+        {
+            "id" : 11,
+            "name": "vaccine mandate",
+            "count": 2000,
+            "lang": "en",
+            "country": "USA",
+            "finished": 0
+        },
+        {
+            "id" : 12,
+            "name": "covidvaccine",
+            "count": 2000,
+            "lang": "en",
+            "country": "USA",
+            "finished": 0
+        },
+        {
+            "id" : 13,
+            "name": "vaccination",
+            "count": 2000,
+            "lang": "en",
+            "country": "USA",
+            "finished": 0
+        },
+        {
+            "id" : 14,
+            "name": "booster shot",
+            "count": 2000,
+            "lang": "en",
+            "country": "USA",
+            "finished": 0
+        },
+        {
+            "id" : 15,
+            "name": "moderna",
+            "count": 2000,
+            "lang": "en",
+            "country": "USA",
+            "finished": 0
+        },
+        {
+            "id" : 16,
+            "name": "unvaccinated",
+            "count": 2000,
+            "lang": "en",
+            "country": "USA",
+            "finished": 0
+        },
+        {
+            "id" : 17,
+            "name": "side effect",
+            "count": 2000,
+            "lang": "en",
+            "country": "USA",
+            "finished": 0
+        },
+        {
+            "id" : 18,
+            "name": "pfizer",
+            "count": 2000,
+            "lang": "en",
+            "country": "USA",
+            "finished": 0
+        },
+        {
+            "id" : 19,
+            "name": "fully vaccinated",
+            "count": 2000,
+            "lang": "en",
+            "country": "USA",
+            "finished": 0
+        },
+        {
+            "id" : 20,
+            "name": "second dose",
+            "count": 2000,
+            "lang": "en",
+            "country": "USA",
+            "finished": 0
+        },
+        {
+            "id" : 21,
+            "name": "कोविशील्ड",
+            "count": 2000,
+            "lang": "hi",
+            "country": "INDIA",
+            "finished": 0
+        },
+        {
+            "id" : 22,
+            "name": "टीका",
+            "count": 2000,
+            "lang": "hi",
+            "country": "INDIA",
+            "finished": 0
+        },
+        {
+            "id" : 23,
+            "name": "वैक्सीनेशन",
+            "count": 2000,
+            "lang": "hi",
+            "country": "INDIA",
+            "finished": 0
+        },
+        {
+            "id" : 24,
+            "name": "कोवैक्सीन",
+            "count": 2000,
+            "lang": "hi",
+            "country": "INDIA",
+            "finished": 0
+        },
+        {
+            "id" : 25,
+            "name": "कोविन",
+            "count": 2000,
+            "lang": "hi",
+            "country": "INDIA",
+            "finished": 0
+        },
+        {
+            "id" : 26,
+            "name": "खुराक",
+            "count": 2000,
+            "lang": "hi",
+            "country": "INDIA",
+            "finished": 0
+        },
+        {
+            "id" : 27,
+            "name": "प्रभाव",
+            "count": 2000,
+            "lang": "hi",
+            "country": "INDIA",
+            "finished": 0
+        },
+        {
+            "id" : 28,
+            "name": "वैक्सीन",
+            "count": 2000,
+            "lang": "hi",
+            "country": "INDIA",
+            "finished": 0
+        },
+        {
+            "id" : 29,
+            "name": "दुष्प्रभाव",
+            "count": 2000,
+            "lang": "hi",
+            "country": "INDIA",
+            "finished": 0
+        },
+        {
+            "id" : 30,
+            "name": "रोग प्रतिरोधक शक्ति",
+            "count": 2000,
+            "lang": "hi",
+            "country": "INDIA",
+            "finished": 0
+        }
+
     ]
-  }
+}

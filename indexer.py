@@ -1,4 +1,7 @@
+import json
 import os
+from time import strftime
+from tweet_preprocessor import _get_entities, _get_tweet_date, _text_cleaner
 import pysolr
 import requests
 
@@ -6,7 +9,7 @@ import requests
 
 
 CORE_NAME = "IRF21P1"
-AWS_IP = "localhost"
+AWS_IP = "3.138.103.74"
 
 
 def delete_core(core=CORE_NAME):
@@ -28,11 +31,105 @@ class Indexer:
         delete_core()
         create_core()
 
-    def create_documents(self, docs):
-        print(self.connection.add(docs))
+    def create_documents(self, tweets):
+        print(self.connection.add(tweets))
 
     def add_fields(self):
-        raise NotImplementedError
+        data = {
+            "add-field":[
+                {
+                    "name" : "poi_name",
+                    "type" : "string",
+                    "multiValued" : False
+                },
+                {
+                    "name" : "poi_id",
+                    "type" : "plong",
+                    "multiValued" : False
+                },
+                {
+                    "name" : "verified",
+                    "type" : "boolean",
+                    "multiValued" : False
+                },
+                {
+                    "name" : "country",
+                    "type" : "string",
+                    "multiValued" : False
+                },
+                {
+                    "name" : "replied_to_tweet_id",
+                    "type" : "plong",
+                    "multiValued" : False
+                },
+                {
+                    "name" : "replied_to_user_id",
+                    "type" : "plong",
+                    "multiValued" : False
+                },
+                {
+                    "name" : "reply_text",
+                    "type" : "text_general",
+                    "multiValued" : False
+                },
+                {
+                    "name" : "tweet_text",
+                    "type" : "text_general",
+                    "multiValued" : False
+                },
+                {
+                    "name" : "tweet_lang",
+                    "type" : "string",
+                    "multiValued" : False
+                },
+                {
+                    "name" : "text_en",
+                    "type" : "text_en",          
+                    "multiValued" : False
+                },
+                {
+                    "name" : "text_hi",
+                    "type" : "text_hi",          
+                    "multiValued" : False
+                },
+                {
+                    "name" : "text_es",
+                    "type" : "text_es",          
+                    "multiValued" : False
+                },
+                {
+                    "name" : "hashtags",
+                    "type" : "string",
+                    "multiValued" : True
+                },
+                {
+                    "name" : "mentions",
+                    "type" : "string",
+                    "multiValued" : True
+                },
+                {
+                    "name" : "tweet_urls",
+                    "type" : "string",
+                    "multiValued" : True
+                },
+                {
+                    "name" : "tweet_emoticons",
+                    "type" : "string",
+                    "multiValued" : True
+                },
+                {
+                    "name" : "tweet_date",
+                    "type" : "pdate",
+                    "multiValued" : False
+                },
+                {
+                    "name" : "geolocation",
+                    "type" : "string",
+                    "multiValued" : True
+                },
+            ]
+        }
+        print(requests.post(self.solr_url + CORE_NAME + "/schema", json=data).json())
 
 
 if __name__ == "__main__":
