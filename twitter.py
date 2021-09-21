@@ -81,23 +81,34 @@ class Twitter:
     
     def get_poi_replies(self,poi_name,poi_local_id):
         final_replies = []
+        reply_counter = {}
+        prev_id = 0
         pickle_file = open(f"poi_{poi_local_id}.pkl", "rb")
         df = pickle.load(pickle_file)
         tweet_ids = []
         for index, row in df.iterrows() :
             tweet_ids.append(row['id'])
-        
+            reply_counter[row['id']] = 0
         tweet_ids.sort(reverse=True)
 
-        replies_for_tweet = tweepy.Cursor(self.api.search, q='to:{} filter:replies'.format(poi_name), sinceId=tweet_ids[0],
-            tweet_mode='extended').items(3000)
-        while len(final_replies) < 1000:
-            reply = replies_for_tweet.next()
-            if not hasattr(reply, 'in_reply_to_status_id_str'):
-                continue
-            if reply.in_reply_to_status_id in tweet_ids:
-                final_replies.append(reply)
-        
+        for tweet_id in tweet_ids:
+            if len(final_replies) == 0:
+                tweet_replies = tweepy.Cursor(self.api.search, q='to:{} filter:replies'.format(poi_name), sinceId=tweet_id,
+                                            tweet_mode='extended').items(300)
+            else:
+                tweet_replies = tweepy.Cursor(self.api.search, q='to:{} filter:replies'.format(poi_name), sinceId=tweet_id,
+                                            max_id=prev_id - 1, tweet_mode='extended').items(300)
+
+            while True:
+                reply = tweet_replies.next()
+                if hasattr(reply, 'in_reply_to_status_id_str'):
+                    if reply.in_reply_to_status_id in tweet_ids:
+                        if reply_counter[reply.in_reply_to_status_id] >= 100:
+                            break
+                        final_replies.append(reply)
+                        reply_counter[reply.in_reply_to_status_id]+=1
+
+            prev_id = tweet_id
         return final_replies
 
 
