@@ -1,4 +1,4 @@
-import time
+import pickle
 from tweet_preprocessor import is_proper_tweet
 import tweepy
 
@@ -79,5 +79,28 @@ class Twitter:
         #     oldest_tweet_id-=1
             
     
-    def get_replies(self):
-        raise NotImplementedError
+    def get_poi_replies(self,poi_name,poi_local_id):
+        final_replies = []
+        pickle_file = open(f"poi_{poi_local_id}.pkl", "rb")
+        df = pickle.load(pickle_file)
+        tweet_ids = []
+        for index, row in df.iterrows() :
+            tweet_ids.append(row['id'])
+        
+        tweet_ids.sort(reverse=True)
+
+        replies_for_tweet = tweepy.Cursor(self.api.search, q='to:{} filter:replies'.format(poi_name), sinceId=tweet_ids[0],
+            tweet_mode='extended').items(3000)
+        while len(final_replies) < 1000:
+            reply = replies_for_tweet.next()
+            if not hasattr(reply, 'in_reply_to_status_id_str'):
+                continue
+            if reply.in_reply_to_status_id in tweet_ids:
+                final_replies.append(reply)
+        
+        return final_replies
+
+
+
+            
+

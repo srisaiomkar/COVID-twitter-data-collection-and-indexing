@@ -58,6 +58,25 @@ def main():
             save_file(processed_tweets, f"poi_{pois[i]['id']}.pkl")
             print("------------ process complete -----------------------------------")
 
+        if pois[i]["finished"] == 1 and pois[i]["reply_finished"] == 0:
+            print(f"---------- collecting replies for poi: {pois[i]['screen_name']}")
+            raw_tweets = twitter.get_poi_replies(pois[i]["screen_name"],pois[i]["id"])
+            for tweet in raw_tweets:
+                print(tweet.full_text)
+            processed_tweets = TWPreprocessor.preprocess(raw_tweets, True)
+
+            indexer.create_documents(processed_tweets)
+
+            pois[i]["reply_finished"] = 1
+            pois[i]["collected"] = len(processed_tweets)
+
+            write_config({
+                "pois": pois, "keywords": keywords
+            })
+
+            save_file(processed_tweets, f"poi_{pois[i]['id']}_replies.pkl")
+            print("------------ process complete -----------------------------------")
+
     for i in range(len(keywords)):
         if keywords[i]["finished"] == 0:
             print(f"---------- collecting tweets for keyword: {keywords[i]['name']}")
