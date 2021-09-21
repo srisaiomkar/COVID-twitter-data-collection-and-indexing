@@ -1,3 +1,4 @@
+import time
 from tweet_preprocessor import is_proper_tweet
 import tweepy
 
@@ -53,21 +54,25 @@ class Twitter:
         return final_tweets
 
 
-    def get_tweets_by_lang_and_keyword(self,required_count,keyword,lang,country):
+    def get_tweets_by_lang_and_keyword(self,required_count,keyword,country):
         final_tweets = []
-        for tweet in self.api.search(q=keyword, count=1,lang = lang , result_type = "popular",tweet_mode='extended'):
+
+        for tweet in tweepy.Cursor(self.api.search, q=keyword, result_type='recent', timeout=999999, tweet_mode='extended').items(required_count*15):
+            tweet.country = country
             oldest_tweet_id = tweet.id
-        while len(final_tweets) < required_count:
-            count = required_count - len(final_tweets)
-            try:
-                for tweet in self.api.search(q=keyword, count=count,lang = lang ,max_id=oldest_tweet_id - 1, result_type = "popular",tweet_mode='extended'):
-                    tweet.country = country
-                    oldest_tweet_id = tweet.id
-                    if is_proper_tweet(tweet):
-                        final_tweets.append(tweet)
-            except tweepy.TweepError as e:
-                print(e)
-                break
+            if is_proper_tweet(tweet):
+                print(tweet.full_text)
+                print("outside loop, count = ", len(final_tweets))
+                final_tweets.append(tweet)
+        # while len(final_tweets) < required_count:
+        #     for tweet in tweepy.Cursor(self.api.search, q=keyword, result_type='recent', timeout=999999, tweet_mode='extended', max_id=oldest_tweet_id).items(2000):
+        #         print(tweet.full_text)
+        #         print("inside loop, count = ", len(final_tweets))
+        #         tweet.country = country
+        #         oldest_tweet_id = tweet.id
+        #         if is_proper_tweet(tweet):
+        #             final_tweets.append(tweet)
+        #     oldest_tweet_id-=1
             
         return final_tweets
     

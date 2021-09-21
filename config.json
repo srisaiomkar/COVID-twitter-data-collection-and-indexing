@@ -50,255 +50,259 @@
             "screen_name": "narendramodi",
             "country": "India",
             "count": 1000,
-            "finished": 0,
-            "reply_finished": 0
+            "finished": 1,
+            "reply_finished": 0,
+            "collected": 1118
         },
         {
             "id": 7,
             "screen_name": "RahulGandhi",
             "country": "India",
             "count": 1000,
-            "finished": 0,
-            "reply_finished": 0
+            "finished": 1,
+            "reply_finished": 0,
+            "collected": 1173
         },
         {
             "id": 8,
             "screen_name": "AmitShah",
             "country": "India",
             "count": 1000,
-            "finished": 0,
-            "reply_finished": 0
+            "finished": 1,
+            "reply_finished": 0,
+            "collected": 1013
         },
         {
             "id": 9,
             "screen_name": "ArvindKejriwal",
             "country": "India",
             "count": 1000,
-            "finished": 0,
-            "reply_finished": 0
+            "finished": 1,
+            "reply_finished": 0,
+            "collected": 1069
         },
         {
             "id": 10,
             "screen_name": "MoHFW_INDIA",
             "country": "India",
-            "count": 1000,
-            "finished": 0,
-            "reply_finished": 0
+            "count": 500,
+            "finished": 1,
+            "reply_finished": 0,
+            "collected": 540
         },
         {
             "id": 11,
             "screen_name": "SSalud_mx",
             "country": "MEXICO",
             "count": 1000,
-            "finished": 0,
-            "reply_finished": 0
+            "finished": 1,
+            "reply_finished": 0,
+            "collected": 1103
         },
         {
             "id": 12,
             "screen_name": "lopezobrador_",
             "country": "MEXICO",
             "count": 1000,
-            "finished": 0,
-            "reply_finished": 0
+            "finished": 1,
+            "reply_finished": 0,
+            "collected": 1126
         },
         {
             "id": 13,
             "screen_name": "m_ebrard",
             "country": "MEXICO",
             "count": 1000,
-            "finished": 0,
-            "reply_finished": 0
+            "finished": 1,
+            "reply_finished": 0,
+            "collected": 1007
         },
         {
             "id": 14,
             "screen_name": "PRI_Nacional",
             "country": "MEXICO",
             "count": 1000,
-            "finished": 0,
-            "reply_finished": 0
+            "finished": 1,
+            "reply_finished": 0,
+            "collected": 1061
         },
         {
             "id": 15,
             "screen_name": "PRDMexico",
             "country": "MEXICO",
             "count": 1000,
-            "finished": 0,
-            "reply_finished": 0
+            "finished": 1,
+            "reply_finished": 0,
+            "collected": 1116
         }
     ],
     "keywords": [
         {
             "id": 1,
             "name": "anticuerpos",
-            "count": 2000,
+            "count": 500,
             "lang": "es",
             "country": "Mexico",
-            "finished": 0
+            "finished": 1,
+            "collected": 525
         },
         {
             "id": 2,
             "name": "eficacia de la vacuna",
-            "count": 2000,
+            "count": 500,
             "lang": "es",
             "country": "Mexico",
-            "finished": 0
+            "finished": 1,
+            "collected": 531
         },
         {
             "id": 3,
             "name": "vacuna covid",
-            "count": 2000,
+            "count": 500,
             "lang": "es",
             "country": "Mexico",
-            "finished": 0
-        },
-        {
-            "id": 4,
-            "name": "dosis de vacuna",
-            "count": 2000,
-            "lang": "es",
-            "country": "Mexico",
-            "finished": 0
+            "finished": 1,
+            "collected": 882
         },
         {
             "id": 5,
             "name": "campa\u00f1a de vacunaci\u00f3n",
-            "count": 2000,
+            "count": 500,
             "lang": "es",
             "country": "Mexico",
-            "finished": 0
+            "finished": 1,
+            "collected": 698
         },
         {
             "id": 6,
             "name": "vacunar",
-            "count": 2000,
+            "count": 500,
             "lang": "es",
             "country": "Mexico",
-            "finished": 0
-        },
-        {
-            "id": 7,
-            "name": "efecto secundario",
-            "count": 2000,
-            "lang": "es",
-            "country": "Mexico",
-            "finished": 0
-        },
-        {
-            "id": 8,
-            "name": "inyecci\u00f3n de refuerzo",
-            "count": 2000,
-            "lang": "es",
-            "country": "Mexico",
-            "finished": 0
+            "finished": 1,
+            "collected": 759
         },
         {
             "id": 9,
             "name": "inmunizaci\u00f3n",
-            "count": 2000,
+            "count": 500,
             "lang": "es",
             "country": "Mexico",
-            "finished": 0
+            "finished": 1,
+            "collected": 541
         },
         {
             "id": 10,
             "name": "vacunado",
-            "count": 2000,
+            "count": 500,
             "lang": "es",
             "country": "Mexico",
-            "finished": 0
+            "finished": 1,
+            "collected": 677
         },
         {
             "id": 11,
             "name": "vaccine mandate",
-            "count": 2000,
+            "count": 500,
             "lang": "en",
             "country": "USA",
-            "finished": 0
+            "finished": 1,
+            "collected": 574
         },
         {
             "id": 12,
             "name": "covidvaccine",
-            "count": 2000,
+            "count": 500,
             "lang": "en",
             "country": "USA",
-            "finished": 0
+            "finished": 1,
+            "collected": 733
         },
         {
             "id": 13,
             "name": "vaccination",
-            "count": 2000,
+            "count": 500,
             "lang": "en",
             "country": "USA",
-            "finished": 0
+            "finished": 1,
+            "collected": 619
         },
         {
             "id": 14,
             "name": "booster shot",
-            "count": 2000,
+            "count": 500,
             "lang": "en",
             "country": "USA",
-            "finished": 0
+            "finished": 1,
+            "collected": 528
         },
         {
             "id": 15,
             "name": "moderna",
-            "count": 2000,
+            "count": 500,
             "lang": "en",
             "country": "USA",
-            "finished": 0
+            "finished": 1,
+            "collected": 651
         },
         {
             "id": 16,
             "name": "unvaccinated",
-            "count": 2000,
+            "count": 500,
             "lang": "en",
             "country": "USA",
-            "finished": 0
+            "finished": 1,
+            "collected": 600
         },
         {
             "id": 17,
             "name": "side effect",
-            "count": 2000,
+            "count": 500,
             "lang": "en",
             "country": "USA",
-            "finished": 0
+            "finished": 1,
+            "collected": 608
         },
         {
             "id": 18,
             "name": "pfizer",
-            "count": 2000,
+            "count": 500,
             "lang": "en",
             "country": "USA",
-            "finished": 0
+            "finished": 1,
+            "collected": 509
         },
         {
             "id": 19,
             "name": "fully vaccinated",
-            "count": 2000,
+            "count": 500,
             "lang": "en",
             "country": "USA",
-            "finished": 0
+            "finished": 1,
+            "collected": 645
         },
         {
             "id": 20,
             "name": "second dose",
-            "count": 2000,
+            "count": 500,
             "lang": "en",
             "country": "USA",
-            "finished": 0
+            "finished": 1,
+            "collected": 618
         },
         {
             "id": 21,
             "name": "\u0915\u094b\u0935\u093f\u0936\u0940\u0932\u094d\u0921",
-            "count": 2000,
+            "count": 500,
             "lang": "hi",
             "country": "INDIA",
-            "finished": 0
+            "finished": 1,
+            "collected": 409
         },
         {
             "id": 22,
             "name": "\u091f\u0940\u0915\u093e",
-            "count": 2000,
+            "count": 500,
             "lang": "hi",
             "country": "INDIA",
             "finished": 0
@@ -306,7 +310,7 @@
         {
             "id": 23,
             "name": "\u0935\u0948\u0915\u094d\u0938\u0940\u0928\u0947\u0936\u0928",
-            "count": 2000,
+            "count": 500,
             "lang": "hi",
             "country": "INDIA",
             "finished": 0
@@ -314,7 +318,7 @@
         {
             "id": 24,
             "name": "\u0915\u094b\u0935\u0948\u0915\u094d\u0938\u0940\u0928",
-            "count": 2000,
+            "count": 500,
             "lang": "hi",
             "country": "INDIA",
             "finished": 0
@@ -322,7 +326,7 @@
         {
             "id": 25,
             "name": "\u0915\u094b\u0935\u093f\u0928",
-            "count": 2000,
+            "count": 500,
             "lang": "hi",
             "country": "INDIA",
             "finished": 0
@@ -330,7 +334,7 @@
         {
             "id": 26,
             "name": "\u0916\u0941\u0930\u093e\u0915",
-            "count": 2000,
+            "count": 500,
             "lang": "hi",
             "country": "INDIA",
             "finished": 0
@@ -338,7 +342,7 @@
         {
             "id": 27,
             "name": "\u092a\u094d\u0930\u092d\u093e\u0935",
-            "count": 2000,
+            "count": 500,
             "lang": "hi",
             "country": "INDIA",
             "finished": 0
@@ -346,7 +350,7 @@
         {
             "id": 28,
             "name": "\u0935\u0948\u0915\u094d\u0938\u0940\u0928",
-            "count": 2000,
+            "count": 500,
             "lang": "hi",
             "country": "INDIA",
             "finished": 0
@@ -354,7 +358,7 @@
         {
             "id": 29,
             "name": "\u0926\u0941\u0937\u094d\u092a\u094d\u0930\u092d\u093e\u0935",
-            "count": 2000,
+            "count": 500,
             "lang": "hi",
             "country": "INDIA",
             "finished": 0
@@ -362,7 +366,47 @@
         {
             "id": 30,
             "name": "\u0930\u094b\u0917 \u092a\u094d\u0930\u0924\u093f\u0930\u094b\u0927\u0915 \u0936\u0915\u094d\u0924\u093f",
-            "count": 2000,
+            "count": 500,
+            "lang": "hi",
+            "country": "INDIA",
+            "finished": 0
+        },
+        {
+            "id": 31,
+            "name": "mandato de vacuna",
+            "count": 500,
+            "lang": "es",
+            "country": "MEXICO",
+            "finished": 0
+        },
+        {
+            "id": 32,
+            "name": "remdesivir",
+            "count": 500,
+            "lang": "es",
+            "country": "MEXICO",
+            "finished": 0
+        },
+        {
+            "id": 33,
+            "name": "la inmunidad de grupo",
+            "count": 500,
+            "lang": "es",
+            "country": "MEXICO",
+            "finished": 0
+        },
+        {
+            "id": 34,
+            "name": "\u090f\u0938\u094d\u091f\u094d\u0930\u093e\u091c\u0947\u0928\u0947\u0915\u093e",
+            "count": 500,
+            "lang": "hi",
+            "country": "INDIA",
+            "finished": 0
+        },
+        {
+            "id": 35,
+            "name": "\u091f\u0940\u0915\u093e \u0932\u0917\u0935\u093e\u090f\u0902",
+            "count": 500,
             "lang": "hi",
             "country": "INDIA",
             "finished": 0

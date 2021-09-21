@@ -1,5 +1,6 @@
 import json
 import datetime
+from logging import exception
 import pandas as pd
 from twitter import Twitter
 from tweet_preprocessor import TWPreprocessor
@@ -60,12 +61,15 @@ def main():
     for i in range(len(keywords)):
         if keywords[i]["finished"] == 0:
             print(f"---------- collecting tweets for keyword: {keywords[i]['name']}")
-            raw_tweets = twitter.get_tweets_by_lang_and_keyword(keywords[i]["count"], keywords[i]["name"], keywords[i]["lang"],keywords[i]["country"])
+            raw_tweets = twitter.get_tweets_by_lang_and_keyword(keywords[i]["count"], keywords[i]["name"],keywords[i]["country"])
             for tweet in raw_tweets:
                 print(tweet.full_text)
             processed_tweets = TWPreprocessor.preprocess(raw_tweets, False)
-            
-            indexer.create_documents(processed_tweets)
+            try:
+                indexer.create_documents(processed_tweets)
+            except Exception as e:
+                print(e)
+                continue
 
             keywords[i]["finished"] = 1
             keywords[i]["collected"] = len(processed_tweets)
