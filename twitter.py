@@ -56,14 +56,18 @@ class Twitter:
 
     def get_tweets_by_lang_and_keyword(self,required_count,keyword,country):
         final_tweets = []
-
-        for tweet in tweepy.Cursor(self.api.search, q=keyword, result_type='recent', timeout=999999, tweet_mode='extended').items(required_count*15):
-            tweet.country = country
-            oldest_tweet_id = tweet.id
-            if is_proper_tweet(tweet):
-                print(tweet.full_text)
-                print("outside loop, count = ", len(final_tweets))
-                final_tweets.append(tweet)
+        try:
+            for tweet in tweepy.Cursor(self.api.search, q=keyword, result_type='recent', timeout=999999, tweet_mode='extended').items(required_count*15):
+                tweet.country = country
+                oldest_tweet_id = tweet.id
+                if is_proper_tweet(tweet):
+                    print(tweet.full_text)
+                    print("outside loop, count = ", len(final_tweets))
+                    final_tweets.append(tweet)
+        except Exception as e:
+            print("an exception has occured.. continuing\n")
+        finally:
+            return final_tweets
         # while len(final_tweets) < required_count:
         #     for tweet in tweepy.Cursor(self.api.search, q=keyword, result_type='recent', timeout=999999, tweet_mode='extended', max_id=oldest_tweet_id).items(2000):
         #         print(tweet.full_text)
@@ -74,7 +78,6 @@ class Twitter:
         #             final_tweets.append(tweet)
         #     oldest_tweet_id-=1
             
-        return final_tweets
     
     def get_replies(self):
         raise NotImplementedError

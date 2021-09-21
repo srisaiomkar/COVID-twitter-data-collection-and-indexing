@@ -300,20 +300,13 @@
             "collected": 409
         },
         {
-            "id": 22,
-            "name": "\u091f\u0940\u0915\u093e",
-            "count": 500,
-            "lang": "hi",
-            "country": "INDIA",
-            "finished": 0
-        },
-        {
             "id": 23,
             "name": "\u0935\u0948\u0915\u094d\u0938\u0940\u0928\u0947\u0936\u0928",
             "count": 500,
             "lang": "hi",
             "country": "INDIA",
-            "finished": 0
+            "finished": 1,
+            "collected": 316
         },
         {
             "id": 24,
@@ -321,7 +314,8 @@
             "count": 500,
             "lang": "hi",
             "country": "INDIA",
-            "finished": 0
+            "finished": 1,
+            "collected": 262
         },
         {
             "id": 25,

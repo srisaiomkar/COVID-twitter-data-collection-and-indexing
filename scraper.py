@@ -61,11 +61,11 @@ def main():
     for i in range(len(keywords)):
         if keywords[i]["finished"] == 0:
             print(f"---------- collecting tweets for keyword: {keywords[i]['name']}")
-            raw_tweets = twitter.get_tweets_by_lang_and_keyword(keywords[i]["count"], keywords[i]["name"],keywords[i]["country"])
-            for tweet in raw_tweets:
-                print(tweet.full_text)
-            processed_tweets = TWPreprocessor.preprocess(raw_tweets, False)
             try:
+                raw_tweets = twitter.get_tweets_by_lang_and_keyword(keywords[i]["count"], keywords[i]["name"],keywords[i]["country"])
+                for tweet in raw_tweets:
+                    print(tweet.full_text)
+                processed_tweets = TWPreprocessor.preprocess(raw_tweets, False)
                 indexer.create_documents(processed_tweets)
             except Exception as e:
                 print(e)
