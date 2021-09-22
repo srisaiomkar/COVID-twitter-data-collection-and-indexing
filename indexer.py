@@ -9,7 +9,7 @@ import requests
 
 
 CORE_NAME = "IRF21P1"
-AWS_IP = "3.138.103.74"
+AWS_IP = "3.142.189.217"
 
 
 def delete_core(core=CORE_NAME):

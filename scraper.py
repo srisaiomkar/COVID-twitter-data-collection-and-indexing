@@ -60,15 +60,15 @@ def main():
 
         if pois[i]["finished"] == 1 and pois[i]["reply_finished"] == 0:
             print(f"---------- collecting replies for poi: {pois[i]['screen_name']}")
-            raw_tweets = twitter.get_poi_replies(pois[i]["screen_name"],pois[i]["id"])
+            raw_tweets = twitter.get_poi_replies(pois[i])
             for tweet in raw_tweets:
                 print(tweet.full_text)
-            processed_tweets = TWPreprocessor.preprocess(raw_tweets, True)
+            processed_tweets = TWPreprocessor.preprocess(raw_tweets, False, True)
 
             indexer.create_documents(processed_tweets)
 
             pois[i]["reply_finished"] = 1
-            pois[i]["collected"] = len(processed_tweets)
+            pois[i]["replies_collected"] = len(processed_tweets)
 
             write_config({
                 "pois": pois, "keywords": keywords
@@ -100,11 +100,6 @@ def main():
             save_file(processed_tweets, f"keywords_{keywords[i]['id']}.csv")
 
             print("------------ process complete -----------------------------------")
-
-    if reply_collection_knob:
-        raise NotImplementedError
-
-
 
 
 

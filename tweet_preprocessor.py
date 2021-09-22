@@ -7,7 +7,7 @@ import preprocessor
 
 class TWPreprocessor:
     @classmethod
-    def preprocess(cls, tweets,are_poi_tweets):
+    def preprocess(cls, tweets,are_poi_tweets,are_reply_tweets = False):
         ldict = []
         for tweet in tweets:
             dct = {
@@ -24,6 +24,8 @@ class TWPreprocessor:
             if(are_poi_tweets):
                 dct['poi_name'] = tweet.user.screen_name
                 dct['poi_id'] = tweet.user.id
+            if(are_reply_tweets):
+                dct['reply_text'] = tweet.full_text
             hastags = _get_entities(tweet,'hashtags')
             mentions = _get_entities(tweet,'mentions')
             tweet_urls = _get_entities(tweet,'urls')
@@ -37,8 +39,6 @@ class TWPreprocessor:
             if(len(tweet_emoticons)):
                 dct['tweet_emoticons'] = tweet_emoticons
 
-            if (tweet.in_reply_to_status_id is not None):
-                dct['reply_text'] = tweet.full_text
             if tweet.lang == 'hi':
                 dct["text_hi"] = tweet.full_text   
             elif tweet.lang == 'en':

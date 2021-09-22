@@ -12,16 +12,13 @@ class Twitter:
         self.auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
         self.auth.set_access_token(access_token,access_token_secret)
         self.api = tweepy.API(self.auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
-
-    def _meet_basic_tweet_requirements(self):
-        raise NotImplementedError
     
     def get_tweets_by_poi_screen_name(self,screen_name,total_count):
         final_tweets = []
         collected_tweets_count = 0
 
         # country and poi dictionary
-        country_poi_dict = {"USA": ["CDCgov", "JoeBiden", "KamalaHarris", "BarackObama", "tedcruz"], 
+        country_poi_dict = {"USA": ["CDCgov", "JoeBiden", "KamalaHarris", "BarackObama", "tedcruz","HHSGov"], 
                     "INDIA": ["MoHFW_INDIA", "narendramodi", "RahulGandhi", "AmitShah", "ArvindKejriwal"],
                     "MEXICO": ["SSalud_mx", "lopezobrador_", "m_ebrard", "PRI_Nacional", "PRDMexico", "rodrigobocardi"]}
 
@@ -59,7 +56,6 @@ class Twitter:
         try:
             for tweet in tweepy.Cursor(self.api.search, q=keyword, result_type='recent', timeout=999999, tweet_mode='extended').items(required_count*15):
                 tweet.country = country
-                oldest_tweet_id = tweet.id
                 if is_proper_tweet(tweet):
                     print(tweet.full_text)
                     print("outside loop, count = ", len(final_tweets))
@@ -68,50 +64,45 @@ class Twitter:
             print("an exception has occured.. continuing\n")
         finally:
             return final_tweets
-        # while len(final_tweets) < required_count:
-        #     for tweet in tweepy.Cursor(self.api.search, q=keyword, result_type='recent', timeout=999999, tweet_mode='extended', max_id=oldest_tweet_id).items(2000):
-        #         print(tweet.full_text)
-        #         print("inside loop, count = ", len(final_tweets))
-        #         tweet.country = country
-        #         oldest_tweet_id = tweet.id
-        #         if is_proper_tweet(tweet):
-        #             final_tweets.append(tweet)
-        #     oldest_tweet_id-=1
-            
-    
-    def get_poi_replies(self,poi_name,poi_local_id):
+
+
+    def get_poi_replies(self,poi):
+        poi_name = poi["screen_name"]
+        poi_local_id = poi["id"]
+        country = poi["country"]
         final_replies = []
-        reply_counter = {}
         prev_id = 0
-        pickle_file = open(f"poi_{poi_local_id}.pkl", "rb")
+        prev_final_replies = 0
+        pickle_file = open(f"data/poi_{poi_local_id}.pkl", "rb")
         df = pickle.load(pickle_file)
         tweet_ids = []
         for index, row in df.iterrows() :
             tweet_ids.append(row['id'])
-            reply_counter[row['id']] = 0
         tweet_ids.sort(reverse=True)
-
-        for tweet_id in tweet_ids:
-            if len(final_replies) == 0:
-                tweet_replies = tweepy.Cursor(self.api.search, q='to:{} filter:replies'.format(poi_name), sinceId=tweet_id,
-                                            tweet_mode='extended').items(300)
-            else:
-                tweet_replies = tweepy.Cursor(self.api.search, q='to:{} filter:replies'.format(poi_name), sinceId=tweet_id,
-                                            max_id=prev_id - 1, tweet_mode='extended').items(300)
-
-            while True:
-                reply = tweet_replies.next()
-                if hasattr(reply, 'in_reply_to_status_id_str'):
+        for reply in tweepy.Cursor(self.api.search, q='to:{} filter:replies'.format(poi_name), sinceId=tweet_ids[0],tweet_mode='extended').items(3000):
+            if hasattr(reply, 'in_reply_to_status_id_str'):
+                    prev_id = reply.in_reply_to_status_id
                     if reply.in_reply_to_status_id in tweet_ids:
-                        if reply_counter[reply.in_reply_to_status_id] >= 100:
-                            break
+                        reply.country = country
                         final_replies.append(reply)
-                        reply_counter[reply.in_reply_to_status_id]+=1
-
-            prev_id = tweet_id
+                        print(len(final_replies))
+                        print(reply.full_text)
+        i = 0;
+        while(len(final_replies) < 2000):
+            if(prev_final_replies == len(final_replies)):
+                break
+            i+=1
+            prev_final_replies = len(final_replies)
+            try:
+                for reply in tweepy.Cursor(self.api.search, q='to:{} filter:replies'.format(poi_name), sinceId= prev_id +1 ,tweet_mode='extended').items(3000):
+                    if hasattr(reply, 'in_reply_to_status_id_str'):
+                        prev_id = reply.in_reply_to_status_id
+                        if reply.in_reply_to_status_id in tweet_ids:
+                            reply.country = country
+                            final_replies.append(reply)
+                            print("inside loop",i,  len(final_replies))
+                            print(reply.full_text)   
+            except:
+                break     
+        
         return final_replies
-
-
-
-            
-
