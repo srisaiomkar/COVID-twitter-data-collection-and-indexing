@@ -81,7 +81,7 @@ def main():
         if keywords[i]["finished"] == 0:
             print(f"---------- collecting tweets for keyword: {keywords[i]['name']}")
             try:
-                raw_tweets = twitter.get_tweets_by_lang_and_keyword(keywords[i]["count"], keywords[i]["name"],keywords[i]["country"])
+                raw_tweets = twitter.get_tweets_by_lang_and_keyword(keywords[i])
                 for tweet in raw_tweets:
                     print(tweet.full_text)
                 processed_tweets = TWPreprocessor.preprocess(raw_tweets, False)

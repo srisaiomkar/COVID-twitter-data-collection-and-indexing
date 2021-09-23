@@ -51,16 +51,35 @@ class Twitter:
         return final_tweets
 
 
-    def get_tweets_by_lang_and_keyword(self,required_count,keyword,country):
+    def get_tweets_by_lang_and_keyword(self,keyword_item):
+        count = keyword_item["count"], 
+        keyword = keyword_item["name"],
+        country = keyword_item["country"]
         final_tweets = []
+        prev_id = 0
+        previous_collected_tweets_count = 0
         try:
-            for tweet in tweepy.Cursor(self.api.search, q=keyword, result_type='recent', timeout=999999, tweet_mode='extended').items(required_count*15):
+            for tweet in tweepy.Cursor(self.api.search, q=keyword, result_type='recent', timeout=999999, tweet_mode='extended').items(3000):
+                prev_id = tweet.id
                 tweet.country = country
                 if is_proper_tweet(tweet):
                     print(tweet.full_text)
-                    print("outside loop, count = ", len(final_tweets))
+                    print("outside loop", len(final_tweets))
                     final_tweets.append(tweet)
+            i = 1    
+            while(len(final_tweets) < 1500):
+                if(previous_collected_tweets_count == len(final_tweets)):
+                    break
+                i+=1
+                previous_collected_tweets_count = len(final_tweets)
+                for tweet in tweepy.Cursor(self.api.search, q=keyword,max_id = prev_id-1 ,timeout=999999, tweet_mode='extended').items(2000):
+                    tweet.country = country
+                    if is_proper_tweet(tweet):
+                        print(tweet.full_text)
+                        print("outside loop",i,  len(final_tweets))
+                        final_tweets.append(tweet)       
         except Exception as e:
+            print(e)
             print("an exception has occured.. continuing\n")
         finally:
             return final_tweets
