@@ -1,14 +1,11 @@
 import pickle
+from keys import *
 from tweet_preprocessor import is_proper_tweet
 import tweepy
 
 
 class Twitter:
     def __init__(self):
-        consumer_key = "LSB6SZwAfaAfDPT71kXRtUnQE"
-        consumer_secret = "yOOJeF6MPJHjdRT98SXm6RtIic9WeHqTOND8g1RvQ3lxLejiYM"
-        access_token = "1432439931281059842-eHsbjreyVfdy5kOgYeM67SqOCFjTTH"
-        access_token_secret = "jM3P3Dq2BLEOO63hr0DAPSr72iSOcrkrDt9IPFaSOS92m"
         self.auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
         self.auth.set_access_token(access_token,access_token_secret)
         self.api = tweepy.API(self.auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
@@ -52,7 +49,6 @@ class Twitter:
 
 
     def get_tweets_by_lang_and_keyword(self,keyword_item):
-        count = keyword_item["count"], 
         keyword = keyword_item["name"],
         country = keyword_item["country"]
         final_tweets = []
@@ -64,7 +60,7 @@ class Twitter:
                 tweet.country = country
                 if is_proper_tweet(tweet):
                     print(tweet.full_text)
-                    print("outside loop", len(final_tweets))
+                    print("outside of loop", len(final_tweets))
                     final_tweets.append(tweet)
             i = 1    
             while(len(final_tweets) < 1500):
@@ -76,7 +72,7 @@ class Twitter:
                     tweet.country = country
                     if is_proper_tweet(tweet):
                         print(tweet.full_text)
-                        print("outside loop",i,  len(final_tweets))
+                        print("inside loop",i,  len(final_tweets))
                         final_tweets.append(tweet)       
         except Exception as e:
             print(e)
