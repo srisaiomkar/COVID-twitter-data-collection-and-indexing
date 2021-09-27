@@ -1,8 +1,5 @@
 # COVID-twitter-data-collection-and-indexing
 
-## A Dating Application
-
-
 ### Technologies: 
 Python, Twitter API, and Apache Solr
 
